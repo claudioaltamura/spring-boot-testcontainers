@@ -1,12 +1,17 @@
 version: '3.8'
 
 services:
-
   postgres:
     image: postgres
     ports:
-      - "5432:5432"
+      - 5432:5432
+    volumes:
+      - superheroes:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=hero
       - POSTGRES_PASSWORD=hero
       - POSTGRES_DB=superheroes
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+volumes:
+  superheroes:

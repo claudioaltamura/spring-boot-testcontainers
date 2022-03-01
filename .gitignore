@@ -12,3 +12,6 @@ buildNumber.properties
 /.idea/
 /.settings/
 /spring-boot-testcontainers.iml
+/.vscode/settings.json
+/.project
+/.classpath
