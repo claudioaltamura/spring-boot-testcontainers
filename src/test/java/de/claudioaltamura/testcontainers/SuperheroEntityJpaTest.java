@@ -25,8 +25,8 @@ class SuperheroEntityJpaTest {
 
 	@Container
 	static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:14")
-			.withPassword("inmemory")
-			.withUsername("inmemory");
+			.withPassword("hero")
+			.withUsername("heror");
 
 	@DynamicPropertySource
 	static void postgresqlProperties(DynamicPropertyRegistry registry) {
