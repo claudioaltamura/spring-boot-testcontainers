@@ -18,20 +18,10 @@ import de.claudioaltamura.testcontainers.superheroes.repository.SuperheroReposit
 @DataJpaTest
 @Testcontainers
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class SuperheroEntityJpaTest {
+class SuperheroEntityJpaTest extends AbstractPostgreSQLTest {
 
 	@Autowired
 	private SuperheroRepository superheroRepository;
-
-	@Container
-	static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:14");
-
-	@DynamicPropertySource
-	static void postgresqlProperties(DynamicPropertyRegistry registry) {
-		registry.add("spring.datasource.url", postgreSQLContainer::getJdbcUrl);
-		registry.add("spring.datasource.password", postgreSQLContainer::getPassword);
-		registry.add("spring.datasource.username", postgreSQLContainer::getUsername);
-	}
 
 	@Test
 	void test() {
