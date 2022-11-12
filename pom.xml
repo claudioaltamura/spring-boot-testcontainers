@@ -18,9 +18,10 @@
   </parent>
 
   <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>17</java.version>
     <testcontainers.version>1.17.5</testcontainers.version>
 <!--    <spotless.version>2.21.0</spotless.version>-->
   </properties>
