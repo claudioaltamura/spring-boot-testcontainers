@@ -18,7 +18,7 @@ class SuperheroEntityJpaTest extends AbstractPostgreSQLTest {
 	private SuperheroRepository superheroRepository;
 
 	@Test
-	void test() {
+	void shouldCreateSuperhero() {
 		final SuperheroEntity superhero = new SuperheroEntity();
 		superhero.setName("Thor");
 		superhero.setPower(98.0d);

@@ -8,7 +8,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 
 /**
- * Singelton Container
+ * Singleton Container
  */
 @Testcontainers
 public class AbstractPostgreSQLTest {

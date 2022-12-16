@@ -5,4 +5,5 @@
 # spring-boot-testcontainers
 Spring Boot Testcontainers example
 
-* Singleton Container
+* Singleton Container case
+* Non Singleton Container case

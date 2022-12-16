@@ -1,0 +1,43 @@
+package de.claudioaltamura.testcontainers;
+
+import de.claudioaltamura.testcontainers.superheroes.entity.SuperheroEntity;
+import de.claudioaltamura.testcontainers.superheroes.repository.SuperheroRepository;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
+import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@Testcontainers
+public class SuperheroEntityNonSingletonContainerJpaTest {
+
+    @Container
+    static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:13");
+
+    @DynamicPropertySource
+    static void postgresqlProperties(DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.url", postgreSQLContainer::getJdbcUrl);
+        registry.add("spring.datasource.password", postgreSQLContainer::getPassword);
+        registry.add("spring.datasource.username", postgreSQLContainer::getUsername);
+    }
+
+    @Autowired
+    private SuperheroRepository superheroRepository;
+
+    @Test
+    void shouldCreateSuperhero() {
+        final SuperheroEntity superhero = new SuperheroEntity();
+        superhero.setName("Thor");
+        superhero.setPower(98.0d);
+        superheroRepository.save(superhero);
+
+        assertThat(superheroRepository.findByName("Thor")).isNotNull();
+    }
+
+}

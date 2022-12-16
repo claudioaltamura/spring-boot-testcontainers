@@ -23,7 +23,7 @@ class SuperheroesApplicationTests extends AbstractPostgreSQLTest {
     }
 
     @Test
-    void getSuperhero() {
+    void shouldReturnSuperhero() {
         this.webTestClient
                 .get()
                 .uri("/api/v1/superheroes")

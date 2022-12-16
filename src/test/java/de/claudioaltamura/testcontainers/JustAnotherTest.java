@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class JustAnotherTest {
 
   @Test
-  void test() {
+  void justAnotherTest() {
     assertTrue(true);
   }
 
