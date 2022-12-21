@@ -13,6 +13,9 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @Testcontainers
 public class AbstractPostgreSQLTest {
 
+  /**
+   * Shared Container.
+   */
   @Container
   static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:13");
 

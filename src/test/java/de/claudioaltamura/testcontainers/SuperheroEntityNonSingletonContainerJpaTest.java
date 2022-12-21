@@ -17,6 +17,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Testcontainers
 public class SuperheroEntityNonSingletonContainerJpaTest {
 
+    /**
+     * Shared between test methods
+     */
     @Container
     static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:13");
 
