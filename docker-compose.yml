@@ -6,12 +6,12 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - superheroes:/var/lib/postgresql/data
+      - superheroes-db:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=hero
-      - POSTGRES_PASSWORD=hero
+      - POSTGRES_PASSWORD=1234
       - POSTGRES_DB=superheroes
       - PGDATA=/var/lib/postgresql/data/pgdata
 
 volumes:
-  superheroes:
+  superheroes-db:
