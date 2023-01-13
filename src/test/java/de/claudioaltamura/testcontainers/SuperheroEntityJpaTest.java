@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import de.claudioaltamura.testcontainers.superheroes.entity.SuperheroEntity;
 import de.claudioaltamura.testcontainers.superheroes.repository.SuperheroRepository;
+import org.springframework.test.context.jdbc.Sql;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -16,6 +17,12 @@ class SuperheroEntityJpaTest extends AbstractPostgreSQLTest {
 
 	@Autowired
 	private SuperheroRepository superheroRepository;
+
+	@Test
+	@Sql("/superheroes.sql")
+	void shouldGetSuperhero() {
+		assertThat(superheroRepository.findByName("Hawkeye")).hasSize(1);
+	}
 
 	@Test
 	void shouldCreateSuperhero() {
