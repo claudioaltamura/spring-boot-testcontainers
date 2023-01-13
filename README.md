@@ -7,3 +7,4 @@ Spring Boot Testcontainers example
 
 * Singleton Container case
 * Non Singleton Container case
+* Providing test data via @SQL annotation
