@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/superheroes
+    username: 1234
+    password: hero
+    hikari:
+      schema: superheroes
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    user: 1234
+    password: superheroes
+    schemas:
+      - todo
+
+db:
+  flyway:
+    clean: true
