@@ -13,7 +13,7 @@ public class AbstractPostgreSQLTest {
 
   /** Shared Container. */
   @Container
-  static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:13");
+  static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:15");
 
   @DynamicPropertySource
   static void postgresqlProperties(@NotNull DynamicPropertyRegistry registry) {
