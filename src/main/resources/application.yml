@@ -4,17 +4,15 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/superheroes
-    username: 1234
-    password: hero
+    username: hero
+    password: 1234
     hikari:
       schema: superheroes
   flyway:
     enabled: true
     baseline-on-migrate: true
-    user: 1234
-    password: superheroes
-    schemas:
-      - todo
+    user: hero
+    password: 1234
 
 db:
   flyway:
