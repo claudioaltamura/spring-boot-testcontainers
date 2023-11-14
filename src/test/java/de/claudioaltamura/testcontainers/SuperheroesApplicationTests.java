@@ -13,29 +13,28 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class SuperheroesApplicationTests extends AbstractPostgreSQLTest {
 
-    private WebTestClient webTestClient;
+  private WebTestClient webTestClient;
 
-    @Autowired private SuperheroController superheroesController;
+  @Autowired private SuperheroController superheroesController;
 
-    @BeforeEach
-    public void setUp() {
-        webTestClient = WebTestClient.bindToController(superheroesController).build();
-    }
+  @BeforeEach
+  public void setUp() {
+    webTestClient = WebTestClient.bindToController(superheroesController).build();
+  }
 
-    @Test
-    void shouldReturnSuperhero() {
-        this.webTestClient
-                .get()
-                .uri("/api/v1/superheroes")
-                .header(ACCEPT, APPLICATION_JSON_VALUE)
-                .exchange()
-                .expectStatus()
-                .is2xxSuccessful()
-                .expectHeader()
-                .contentType(APPLICATION_JSON)
-                .expectBody()
-                .jsonPath("$.length()")
-                .isEqualTo(2);
-    }
-
+  @Test
+  void shouldReturnSuperhero() {
+    this.webTestClient
+        .get()
+        .uri("/api/v1/superheroes")
+        .header(ACCEPT, APPLICATION_JSON_VALUE)
+        .exchange()
+        .expectStatus()
+        .is2xxSuccessful()
+        .expectHeader()
+        .contentType(APPLICATION_JSON)
+        .expectBody()
+        .jsonPath("$.length()")
+        .isEqualTo(2);
+  }
 }

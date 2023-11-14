@@ -1,26 +1,24 @@
 package de.claudioaltamura.testcontainers.superheroes;
 
-import java.util.List;
-
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import java.util.List;
 
 public interface SuperheroService {
 
-	List<Superhero> getAll();
+  List<Superhero> getAll();
 
-	Superhero getById(@NotNull Long id);
+  Superhero getById(@NotNull Long id);
 
-	boolean existsById(@NotNull  Long id);
+  boolean existsById(@NotNull Long id);
 
-	List<Superhero> findByName(@NotNull String name);
+  List<Superhero> findByName(@NotNull String name);
 
-	Superhero save(@Valid Superhero superhero);
+  Superhero save(@Valid Superhero superhero);
 
-	Superhero update(@Valid Superhero superhero);
+  Superhero update(@Valid Superhero superhero);
 
-	void deleteById(@NotNull Long id);
+  void deleteById(@NotNull Long id);
 
-	void deleteAll();
-
+  void deleteAll();
 }

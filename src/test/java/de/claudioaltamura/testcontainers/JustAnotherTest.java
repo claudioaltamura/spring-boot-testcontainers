@@ -10,5 +10,4 @@ class JustAnotherTest {
   void justAnotherTest() {
     assertTrue(true);
   }
-
 }
